@@ -1,0 +1,195 @@
+/* Fonte moderna */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* Fundo geral com gradiente */
+body {
+    min-height: 100vh;
+    background: linear-gradient(120deg, #b3c6ff 0%, #f8fafc 100%);
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.chat-container {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 36px rgba(44,62,80,0.10);
+    width: 98%;
+    max-width: 430px;
+    min-width: 290px;
+    padding: 0 0 18px 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    color: #2156c6;
+    letter-spacing: 1px;
+    font-weight: 700;
+    font-size: 1.45rem;
+    background: #e7f0ff;
+    margin: 0 0 12px 0;
+    padding: 18px 0 12px 0;
+}
+
+.chatbox {
+    background: #f4f8fc;
+    border-radius: 10px;
+    border: 1.5px solid #e3e6ee;
+    min-height: 280px;
+    max-height: 380px;
+    overflow-y: auto;
+    padding: 18px 12px;
+    margin: 0 18px 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Mensagens do usuário e IA */
+p {
+    margin: 0;
+    padding: 9px 14px;
+    border-radius: 14px;
+    max-width: 86%;
+    font-size: 1rem;
+    word-break: break-word;
+    line-height: 1.55;
+    box-sizing: border-box;
+    opacity: 0.97;
+    animation: fadeIn 0.5s;
+}
+
+.user-message {
+    background: linear-gradient(115deg, #2156c6 85%, #6b90ff 100%);
+    color: #fff;
+    align-self: flex-end;
+    border-bottom-right-radius: 4px;
+    margin-left: auto;
+    font-weight: 500;
+    box-shadow: 0 3px 8px rgba(33,86,198,0.04);
+}
+
+.ai-message {
+    background: #e7f0ff;
+    color: #16213e;
+    align-self: flex-start;
+    border-bottom-left-radius: 4px;
+    margin-right: auto;
+    border-left: 3px solid #2156c6;
+    font-weight: 400;
+}
+
+.error-message {
+    background: #ffe6e6;
+    color: #a50000;
+    font-weight: 600;
+    border: 1px solid #ffd6d6;
+    align-self: center;
+    text-align: center;
+}
+
+.loading-message {
+    background: #fafafa;
+    color: #bbb;
+    font-style: italic;
+    border: 1px dashed #b3c6ff;
+    align-self: center;
+}
+
+/* Estilo para links nas mensagens */
+.ai-message a, .user-message a {
+    color: #2156c6;
+    text-decoration: underline;
+    word-break: break-all;
+    font-weight: 500;
+    transition: color 0.15s;
+}
+.ai-message a:hover, .user-message a:hover {
+    color: #0061b6;
+}
+
+/* Área de input e botão */
+.input-area {
+    display: flex;
+    gap: 10px;
+    padding: 0 18px;
+    margin-top: 2px;
+}
+
+#carModelInput {
+    flex: 1;
+    padding: 11px 12px;
+    border: 1.5px solid #e3e6ee;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: border 0.2s;
+    background: #f7fafd;
+}
+#carModelInput:focus {
+    border-color: #2156c6;
+    background: #eef6ff;
+}
+
+#sendButton {
+    padding: 0 24px;
+    background: linear-gradient(120deg, #2156c6 80%, #67a8ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.18s, transform 0.1s;
+    box-shadow: 0 2px 8px rgba(33,86,198,0.06);
+}
+#sendButton:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+#sendButton:hover:not(:disabled) {
+    background: linear-gradient(120deg, #184ba0 80%, #4d90ee 100%);
+    transform: translateY(-1.5px) scale(1.04);
+}
+
+/* Animação de fade in */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(15px);}
+    100% { opacity: 1; transform: translateY(0);}
+}
+
+/* Scrollbar mais discreta */
+.chatbox::-webkit-scrollbar {
+    width: 6px;
+    background: #eef2fa;
+}
+.chatbox::-webkit-scrollbar-thumb {
+    background: #dbe7fa;
+    border-radius: 3px;
+}
+
+@media (max-width: 520px) {
+    .chat-container {
+        min-width: unset;
+        max-width: 99vw;
+    }
+    .chatbox {
+        margin: 0 6px 12px 6px;
+        padding: 12px 4px;
+        min-height: 180px;
+        max-height: 220px;
+    }
+    .input-area {
+        padding: 0 6px;
+        gap: 7px;
+    }
+    h1 {
+        font-size: 1.1rem;
+        padding: 14px 0 10px 0;
+    }
+}
